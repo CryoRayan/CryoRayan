@@ -1,0 +1,322 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>CryoRayan</title>
+    <script src="https://cdn.jsdelivr.net/npm/lucide-icons@0.263.1/dist/umd/lucide.min.js"></script>
+    <style>
+        * {
+   .cursor {
+    position: absolute;
+    pointer-events: none;
+    cursor: auto; /* Use the default cursor */
+
+        }
+
+        body {
+            background: linear-gradient(45deg, #0f0c29, #302b63, #24243e);
+            background-size: 400% 400%;
+            animation: gradientBG 15s ease infinite;
+            font-family: 'Arial', sans-serif;
+            color: #ffffff;
+            overflow-x: hidden;
+            perspective: 1000px;
+        }
+
+        @keyframes gradientBG {
+            0% { background-position: 0% 50%; }
+            50% { background-position: 100% 50%; }
+            100% { background-position: 0% 50%; }
+        }
+
+.cursor {
+    cursor: default;
+    pointer-events: none;
+}
+        .section {
+            background: rgba(255, 255, 255, 0.1);
+            backdrop-filter: blur(15px);
+            border-radius: 16px;
+            border: 1px solid rgba(255, 255, 255, 0.125);
+            box-shadow: 0 8px 32px 0 rgba(31, 38, 135, 0.37);
+            transition: all 0.3s ease;
+            transform: translateZ(20px);
+            display: none;
+        }
+
+        .section.active {
+            display: block;
+        }
+
+        #navigation a {
+            cursor: pointer;
+            margin-right: 1rem;
+            text-decoration: none;
+            color: white;
+            font-variant: small-caps;
+        }
+
+        .tech-icons {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            gap: 20px;
+            margin-top: 20px;
+            flex-wrap: wrap;
+        }
+
+        .tech-icon {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            gap: 10px;
+            transition: transform 0.3s ease;
+        }
+
+        .tech-icon:hover {
+            transform: scale(1.1);
+        }
+
+        .arch-logo {
+            max-width: 150px;
+            margin-top: 20px;
+            filter: brightness(1.2) contrast(1.2);
+            transition: transform 0.3s ease;
+        }
+
+        .arch-logo:hover {
+            transform: scale(1.1) rotate(5deg);
+        }
+
+        .cryohost-button {
+            display: inline-block;
+            padding: 1rem 2rem;
+            margin-top: 2rem;
+            background: linear-gradient(135deg, #4fc3f7, #2196f3);
+            border: none;
+            border-radius: 8px;
+            color: white;
+            font-variant: small-caps;
+            font-size: 1.2rem;
+            text-decoration: none;
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+            box-shadow: 0 4px 15px rgba(79, 195, 247, 0.3);
+        }
+
+        .cryohost-button:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 6px 20px rgba(79, 195, 247, 0.5);
+        }
+
+        .feature-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 1.5rem;
+            margin-top: 2rem;
+        }
+
+        .feature-card {
+            background: rgba(255, 255, 255, 0.05);
+            padding: 1.5rem;
+            border-radius: 12px;
+            border: 1px solid rgba(255, 255, 255, 0.1);
+            transition: transform 0.3s ease;
+        }
+
+        .feature-card:hover {
+            transform: translateY(-5px);
+        }
+
+        .feature-title {
+            font-variant: small-caps;
+            color: #4fc3f7;
+            margin-bottom: 1rem;
+            font-size: 1.3rem;
+        }
+
+        .pricing-table {
+            margin-top: 2rem;
+            border-radius: 12px;
+            overflow: hidden;
+            background: rgba(0, 0, 0, 0.2);
+        }
+
+        .pricing-header {
+            background: rgba(79, 195, 247, 0.2);
+            padding: 1rem;
+            text-align: center;
+            font-variant: small-caps;
+        }
+
+        .pricing-content {
+            padding: 1.5rem;
+        }
+
+        .price-tag {
+            font-size: 2rem;
+            color: #4fc3f7;
+            margin: 1rem 0;
+            font-variant: small-caps;
+        }
+    </style>
+</head>
+<body>
+    <div class="cursor"></div>
+
+    <header style="display: flex; justify-content: space-between; padding: 2rem; align-items: center;">
+        <h1 style="font-variant: small-caps; font-size: 2.5rem;">CryoRayan</h1>
+        <nav id="navigation">
+            <a data-section="about">About Me</a>
+            <a data-section="cryohost">CryoHost</a>
+        </nav>
+    </header>
+
+    <div class="container" style="display: grid; grid-template-columns: 1fr; gap: 2rem; padding: 2rem;">
+        <div id="about" class="section active" style="padding: 2rem;">
+            <h2>About Me</h2>
+            <p>Hi, I'm a 21-year-old software developer passionate about creating innovative digital solutions.</p>
+            
+            <div style="background: rgba(0,0,0,0.3); padding: 1rem; border-radius: 8px; margin-top: 1rem;">
+                <h3>Tech Stack & Learning Journey</h3>
+                <div class="tech-icons">
+                    <div class="tech-icon">
+                        <svg xmlns="http://www.w3.org/2000/svg" width="48" height="48" viewBox="0 0 24 24" fill="none" stroke="#4fc3f7" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                            <path d="M17 11.9 7.4 20.3c-.8.8-2 .8-2.8 0l-1.9-1.9c-.8-.8-.8-2 0-2.8L12 7.1"/>
+                            <path d="m18.2 5.6 2.6 2.7c.8.8.8 2 0 2.8l-4.8 4.8"/>
+                        </svg>
+                        <span>C++</span>
+                    </div>
+                    <div class="tech-icon">
+                        <svg xmlns="http://www.w3.org/2000/svg" width="48" height="48" viewBox="0 0 24 24" fill="none" stroke="#4fc3f7" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                            <path d="M21.2 15.89A5.89 5.89 0 0 1 18 17.12l-1.07-1.07"/>
+                            <path d="M14.19 3.02A5.89 5.89 0 0 1 18 5.41l-9.93 5.61a5.44 5.44 0 0 0-1.07-1.07Z"/>
+                            <path d="M14.19 20.98A5.89 5.89 0 0 0 18 18.59l-9.93-5.61a5.44 5.44 0 0 1-1.07 1.07z"/>
+                        </svg>
+                        <span>Java</span>
+                    </div>
+                    <div class="tech-icon">
+                        <svg xmlns="http://www.w3.org/2000/svg" width="48" height="48" viewBox="0 0 24 24" fill="none" stroke="#4fc3f7" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                            <path d="M9 19c-5 1.5-5-2.5-7-3m14 6v-3.87a3.37 3.37 0 0 0-.94-2.61c3.14-.35 6.44-1.54 6.44-7A5.44 5.44 0 0 0 20 4.77 5.07 5.07 0 0 0 19.91 1S18.73.65 16 2.48a13.38 13.38 0 0 0-7 0C6.27.65 5.09 1 5.09 1A5.07 5.07 0 0 0 5 4.77a5.44 5.44 0 0 0-1.5 3.78c0 5.42 3.3 6.61 6.44 7A3.37 3.37 0 0 0 9 18.13V22"/>
+                        </svg>
+                        <span>GitHub</span>
+                    </div>
+                    <div class="tech-icon">
+                        <svg xmlns="http://www.w3.org/2000/svg" width="48" height="48" viewBox="0 0 24 24" fill="none" stroke="#4fc3f7" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                            <path d="M12 2a5.65 5.65 0 0 0-5 3.3 5.46 5.46 0 0 0 .2 5.7l6.8 10 6.8-10a5.46 5.46 0 0 0 .2-5.7A5.65 5.65 0 0 0 12 2Zm0 5.65A1.8 1.8 0 1 1 12 9a1.8 1.8 0 0 1 0-1.35Z"/>
+                        </svg>
+                        <span>HTML</span>
+                    </div>
+                </div>
+            </div>
+
+            <div style="background: rgba(0,0,0,0.3); padding: 1rem; border-radius: 8px; margin-top: 1rem;">
+                <h3>My Development Focus</h3>
+                <p>Dedicated to continuous learning and exploring cutting-edge technologies. Passionate about system-level programming, web development, and creating efficient solutions.</p>
+            </div>
+
+            <div style="text-align: center; margin-top: 2rem;">
+                <h3>My Preferred Operating System</h3>
+                <img src="data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHZpZXdCb3g9IjAgMCAyNTAgMjUwIj48cGF0aCBkPSJNMTI1LDBsMjUsMzVsMjUsMzVoMTAwbC0yNS0zNWwtMjUtMzV6IiBmaWxsPSIjMWQ5OGRjIi8+PHBhdGggZD0iTTEwMCwyNTBsMjUtMzVsMjUtMzV2LTcwbC0yNSwzNWwtMjUsMzV6IiBmaWxsPSIjMzM0YTVmIi8+PHBhdGggZD0iTTAsNzBsMjUsMzVsMjUsMzVoMTAwbC0yNS0zNWwtMjUtMzV6IiBmaWxsPSIjMWQ5OGRjIi8+PHBhdGggZD0iTTEwMCwxNDBsMjUtMzVsMjUtMzV2LTM1bC0yNSwzNWwtMjUsMzV6IiBmaWxsPSIjMzM0YTVmIi8+PC9zdmc+" 
+                     alt="Arch Linux Logo" class="arch-logo" />
+                <p style="margin-top: 10px; color: #4fc3f7;">Arch Linux Enthusiast</p>
+            </div>
+
+            <div style="text-align: center; margin-top: 2rem;">
+                <a class="cryohost-button" data-section="cryohost">Discover CryoHost</a>
+            </div>
+        </div>
+
+        <div id="cryohost" class="section" style="padding: 2rem;">
+            <h2 style="font-variant: small-caps; text-align: center; color: #4fc3f7; font-size: 2.5rem;">CryoHost</h2>
+            <p style="text-align: center; font-variant: small-caps; margin-top: 1rem;">
+                Premium Hosting Solutions | Coming 2025-2026
+            </p>
+
+            <div class="feature-grid">
+                <div class="feature-card">
+                    <h3 class="feature-title">Website Hosting</h3>
+                    <ul style="list-style: none;">
+                        <li>✓ 99.9% Uptime Guarantee</li>
+                        <li>✓ SSD Storage</li>
+                        <li>✓ Free SSL Certificates</li>
+                        <li>✓ Daily Backups</li>
+                    </ul>
+                </div>
+
+                <div class="feature-card">
+                    <h3 class="feature-title">Discord Bot Hosting</h3>
+                    <ul style="list-style: none;">
+                        <li>✓ 24/7 Uptime</li>
+                        <li>✓ Automatic Restarts</li>
+                        <li>✓ Resource Monitoring</li>
+                        <li>✓ Easy Deployment</li>
+                    </ul>
+                </div>
+
+                <div class="feature-card">
+                    <h3 class="feature-title">Minecraft Hosting</h3>
+                    <ul style="list-style: none;">
+                        <li>✓ Java & Bedrock Support</li>
+                        <li>✓ Mod Support</li>
+                        <li>✓ DDoS Protection</li>
+                        <li>✓ One-Click Installer</li>
+                    </ul>
+                </div>
+            </div>
+
+            <div class="pricing-table">
+                <div class="pricing-header">
+                    <h3>Early Bird Offers</h3>
+                </div>
+                <div class="pricing-content">
+                    <div style="text-align: center;">
+                        <p class="price-tag">Up to 30% Off</p>
+                        <p style="font-variant: small-caps;">
+                            Tell the owner "cryorayan" in discord that you will buy from him when the hosting releases!(sneaky tricks)
+                        </p>
+                    </div>
+                </div>
+            </div>
+
+            <div style="text-align: center; margin-top: 2rem;">
+                <p style="font-variant: small-caps; color: #4fc3f7; font-size: 1.2rem;">
+                    Development Progress
+                </p>
+                <div style="background: rgba(0,0,0,0.3); padding: 1.5rem; border-radius: 12px; margin-top: 1rem;">
+                    <p style="font-variant: small-caps;">
+                        We're currently in the development phase, focusing on creating a robust and reliable hosting infrastructure.
+                        Our team is working diligently to ensure we deliver a premium hosting experience that meets your needs.
+                    </p>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        const cursor = document.querySelector('.cursor');
+        document.addEventListener('mousemove', (e) => {
+            cursor.style.left = `${e.clientX}px`;
+            cursor.style.top = `${e.clientY}px`;
+        });
+
+        // Section navigation
+        const navigation = document.getElementById('navigation');
+        const sections = document.querySelectorAll('.section');
+
+        document.addEventListener('click', (e) => {
+            if (e.target.matches('[data-section]')) {
+                const sectionId = e.target.dataset.section;
+                
+                // Hide all sections
+                sections.forEach(section => {
+                    section.classList.remove('active');
+                });
+
+                // Show selected section
+                document.getElementById(sectionId).classList.add('active');
+            }
+        });
+    </script>
+</body>
+</html>
